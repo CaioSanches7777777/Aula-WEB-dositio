@@ -24,4 +24,8 @@
 
 ```npm i fastify```
 
+# Reconstroi todas as dependências "node_modules"
+
+```npm install```
+
 #instalar o ThunderClient
