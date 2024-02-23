@@ -4,7 +4,7 @@ export async function build(opts){
     const app = fastify(opts);
 
     app.get('/', async (request, reply) => {
-        return {hello: 'world'}
+        return {hello: 'world'};
     });
 
     const products = [
@@ -14,12 +14,19 @@ export async function build(opts){
 
     app.get('/products', async (request, reply) => {
         return products;
-    })
+    });
     
+    app.post('/products', async (request, reply) => {
+        let product = request.body
+        return{product};
+    });
+
     app.get('/products/:id', async (request, reply) => {
         app.logger.info('Produto requisitado' + request.params.id);
         return{};
-    })
+    });
+
+    
 
     return app;
 };
