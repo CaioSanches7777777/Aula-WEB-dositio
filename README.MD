@@ -1,16 +1,16 @@
 # Para criar uma pasta em DevC
 
-´´´cd ../../../..´´´
+```cd ../../../..```
 
-´´´ls´´´
+```ls```
 
-´´´cd DevC´´´
+```cd DevC```
 
-´´´mkdir dositio´´´
+```mkdir dositio```
 
-´´´cd dositio´´´
+```cd dositio```
 
-´´´code .´´´
+```code .```
 
 # Criar um projeto no node (package.json)
 
