@@ -58,3 +58,6 @@ ou
 
 ```npm install @fastify/error```
 
+# Instalar fastify static
+
+```npm install @fastify/static```
