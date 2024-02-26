@@ -33,3 +33,9 @@
 # Rodar o server.js
 
 ```node server.js```
+
+# Buscar no navegador 
+
+```http://localhost:3000```
+
+```http://localhost:3000/products```
