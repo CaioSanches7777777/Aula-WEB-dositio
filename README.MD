@@ -29,3 +29,7 @@
 ```npm install```
 
 #instalar o ThunderClient
+
+# Rodar o server.js
+
+```node server.js```
