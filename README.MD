@@ -50,7 +50,11 @@ ou
 
 ```npm i dotenv```
 
-# Instalar close with grac
+# Instalar close with grace
 
 ```npm install close-with-grace```
+
+# Instalar fastify error
+
+```npm install @fastify/error```
 
