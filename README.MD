@@ -61,3 +61,8 @@ ou
 # Instalar fastify static
 
 ```npm install @fastify/static```
+
+# Rodar o test
+
+```node --test .\test.js```
+
