@@ -1,6 +1,10 @@
 /** @type{import('fastify').FastifyPluginAsync<>} */
+import createError from '@fastify/error';
 
 export default async function products(app, options){
+
+    const InvalidProductError = createError('InvalidProductError', 'Invalid Product', 401);
+
     const products = [
         {id: 1, name: 'Tomate', qtd: 20},
         {id: 2, name: 'Cebola', qtd: 50},
@@ -11,9 +15,28 @@ export default async function products(app, options){
         return products;
     });
 
-    app.post('/products', async (request, reply) => {
+    app.post('/products', {
+        schema:{
+            body:{
+                type: 'object',
+                properties:{
+                    id:{type: 'integer'},
+                    name:{type: 'string'},
+                    qut:{type: 'integer'}
+                },
+                required: ['name', 'qtd']
+            }
+        }
+    }, async (request, reply) => {
         let product = request.body;
-        return {product};
+        if(product.name && product.qtd){
+            request.log.info(`Including product ${product.name}.`);
+            //db.save(product); //garanta que o produto tenha nome e qtd
+            return {product};
+        }else{
+            throw new InvalidProductError();
+        }
+
     });
 
     app.get('/products/:id', async (request, reply) => {
