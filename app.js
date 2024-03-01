@@ -7,6 +7,7 @@ import products from './routes/products.js'
 
 
 const MyCustomError = createError('MyCustomError', 'Something strange happened', 501); //mensagem de erro customisada
+const InvalidProductError = createError('InvalidProductError', 'Invalid Product', 401);
 
 export async function build(opts){
     const app = fastify(opts);
@@ -26,10 +27,11 @@ export async function build(opts){
     });
 
     app.setErrorHandler(async (error, request, reply) => {
+        const {validation} = error;
         request.log.error({ error });
         reply.code(error.statusCode || 500);
 
-        return `Route ${request.url} causes an Internal Server Error.`;
+        return validation ? `Validation Error: ${validation[0].message}.` : 'Internal Server Error';
     });
 
     app.get('/notfound', (request, reply) => {
