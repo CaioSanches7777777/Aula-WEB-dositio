@@ -1,6 +1,6 @@
 /** @type{import('fastify').FastifyPluginAsync<>} */
 
-export default async function spa(app, options){
+export default async function products(app, options){
     const products = [
         {id: 1, name: 'Tomate', qtd: 20},
         {id: 2, name: 'Cebola', qtd: 50},
