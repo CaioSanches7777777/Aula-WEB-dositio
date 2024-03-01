@@ -29,13 +29,9 @@ export default async function products(app, options){
         }
     }, async (request, reply) => {
         let product = request.body;
-        if(product.name && product.qtd){
-            request.log.info(`Including product ${product.name}.`);
-            //db.save(product); //garanta que o produto tenha nome e qtd
-            return {product};
-        }else{
-            throw new InvalidProductError();
-        }
+        request.log.info(`Including product ${product.name}.`);
+        //db.save(product); //garanta que o produto tenha nome e qtd
+        return {product};
 
     });
 
