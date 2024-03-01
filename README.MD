@@ -20,7 +20,9 @@
 
 ```npm init --help```  ou ```npm help init```
 
-# Instala a Fastify
+# Instala a Fastify 
+
+```https://fastify.dev/docs/latest/```
 
 ```npm i fastify```
 
