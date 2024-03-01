@@ -11,10 +11,14 @@ test('Basic Server', async(t) => {
 
     const response = await app.inject({
         method: 'GET',
-        url: '/'
+        url: '/products'
     });
 
     assert.strictEqual(response.statusCode,200);
-    assert.deepEqual(response.json(), {hello: 'world'});
+    assert.deepEqual(response.json(), [
+        {id: 1, name: 'Tomate', qtd: 20},
+        {id: 2, name: 'Cebola', qtd: 50},
+        {id: 3, name: 'Cenoura', qtd: 30}
+    ]);
 
 });
