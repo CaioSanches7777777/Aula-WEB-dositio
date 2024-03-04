@@ -77,3 +77,8 @@ ou
 ```npm install nodemon -D```
 ### Ajeitar o "scripts" no package.json
 ```npm run dev```
+
+# Instalar o autoload
+
+```npm i @fastify/autoload```
+
