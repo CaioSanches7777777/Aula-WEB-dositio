@@ -1,10 +1,13 @@
 import fastify from 'fastify';
 import createError from '@fastify/error';
-import fastifyStatic from '@fastify/static';
-import spa from './routes/spa.js';
-import movies from './routes/movies.js';
-import products from './routes/products.js'
+import autoload from '@fastify/autoload';
 
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+import { request } from 'http';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const MyCustomError = createError('MyCustomError', 'Something strange happened', 501); //mensagem de erro customisada
 const InvalidProductError = createError('InvalidProductError', 'Invalid Product', 401);
@@ -12,15 +15,27 @@ const InvalidProductError = createError('InvalidProductError', 'Invalid Product'
 export async function build(opts){
     const app = fastify(opts);
 
-    app.register(fastifyStatic, {
-        root: `${import.meta.dirname}/public`,
-        wildcard: false
+    app.register(autoload, {
+        dir: join(__dirname, 'routes')
     });
 
-    app.register(spa);
-    app.register(movies);
-    app.register(products);
-    
+    const logMe = async (request, reply) => {
+        request.log.info(`Request on route: ${request.url}`);
+    };
+
+
+
+
+    app.addHook('onRoute', async (routeOptions) => {
+        if(routeOptions.config?.logMe){
+            if(!Array.isArray(routeOptions.onRequest) && routeOptions.onRequest){
+                routeOptions.onRequest = [routeOptions.onRequest];
+            }else{
+                routeOptions.onRequest = [];
+            }
+            routeOptions.onRequest.push(logMe);
+        }
+    });
 
     app.get('/error', (request, reply) => {
         throw new MyCustomError();
