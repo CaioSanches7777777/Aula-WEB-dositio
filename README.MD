@@ -75,3 +75,5 @@ ou
 # Instalar nodemon
 
 ```npm install nodemon -D```
+## Ajeitar o package.json
+```npm run dev```
