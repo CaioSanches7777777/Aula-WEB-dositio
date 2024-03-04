@@ -4,21 +4,22 @@ import closeWithGrace from 'close-with-grace';
 
 dotenv.config();
 
-const options = { logger: true };
-const app = await build(options);
+const options = {};
 
+options.logger = process.stdout.isTTY ? { transport: {target: 'pino-pretty'}}: true;
+
+const server = await build(options);
+
+//const server = await build({logger: true});
 
 const port = process.env.PORT || '3000';
 const host = process.env.HOST || '127.0.0.1';
 
-await app.listen({port, host});
+await server.listen({port, host});
 
 closeWithGrace(async ({signal, err}) => {
-    if(err) app.log.error(`Server closing due to an error: ${err.message}`);
-    else app.log.info(`${signal} signal recived. Shutting down gracefully.`);
+    if(err) server.log.error(`Server closing due to an error: ${err.message}`);
+    else server.log.info(`${signal} signal recived. Shutting down gracefully.`);
+
+    await server.close();
 })
-
-
-//setTimeout(() => {
-//    throw new Error('Erro no servidor');
-//}, 3000);
