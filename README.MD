@@ -68,3 +68,10 @@ ou
 
 ```node --test .\test.js```
 
+# Instalar pino-pretty
+
+```npm install pino-pretty -D```
+
+# Instalar nodemon
+
+```npm install nodemon -D```
