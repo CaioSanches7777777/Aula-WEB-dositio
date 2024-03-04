@@ -11,7 +11,7 @@ export default async function products(app, options){
         {id: 3, name: 'Cenoura', qtd: 30}
     ]
 
-    app.get('/products', async (request, reply) => {
+    app.get('/products', {config:{logMe: true}}, async (request, reply) => {
         return products;
     });
 
@@ -29,19 +29,19 @@ export default async function products(app, options){
         }
     }, async (request, reply) => {
         let product = request.body;
-        request.log.info(`Including product ${product.name}.`);
+        
         //db.save(product); //garanta que o produto tenha nome e qtd
         return {product};
 
     });
 
     app.get('/products/:id', async (request, reply) => {
-        app.log.info('Produto requisitado> ' + request.params.id);
+        
         return {};
     });
     
     app.delete('/products/:id', async (request, reply) => {
-        app.log.info('Produto para remover> ' + request.params.id);
+        
         return {};
     });
 }
