@@ -3,11 +3,10 @@ import dotenv from 'dotenv';
 import closeWithGrace from 'close-with-grace';
 
 dotenv.config();
-/*
+
 const options = { logger: true };
-const app = await build({options});
-*/
-const app = await build({logger: true});
+const app = await build(options);
+
 
 const port = process.env.PORT || '3000';
 const host = process.env.HOST || '127.0.0.1';
