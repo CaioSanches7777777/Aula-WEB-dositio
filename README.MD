@@ -82,3 +82,7 @@ ou
 
 ```npm i @fastify/autoload```
 
+# Instalar o jwt
+
+```npm install @fastify/jwt```
+
