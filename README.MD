@@ -86,3 +86,6 @@ ou
 
 ```npm install @fastify/jwt```
 
+# Instalar o mongoDB
+
+```npm install @fastify/mongodb```
