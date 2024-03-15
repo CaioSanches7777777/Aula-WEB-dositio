@@ -6,7 +6,8 @@ export default async function products(app, options) {
     const products = app.mongo.db.collection('products');
 
     app.get('/products', 
-        {
+        {    
+            //para exigir autenticação
             config: {
                 logMe: true,
                 requireAuthentication: true
