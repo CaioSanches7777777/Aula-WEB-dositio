@@ -14,7 +14,13 @@
 
 # Para copiar direto do GitHub
 
-```git clone https://"URL do repositório".git```
+### git clone https://"URL do repositório".git
+
+```git clone https://github.com/CaioSanches7777777/Aula-WEB-dositio.git```
+
+```cd Aula-WEB-dositio```
+
+```code .```
 
 # Criar um projeto no node (package.json)
 
