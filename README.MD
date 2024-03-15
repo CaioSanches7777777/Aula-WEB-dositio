@@ -12,6 +12,10 @@
 
 ```code .```
 
+# Para copiar direto do GitHub
+
+```git clone https://"URL do repositório".git```
+
 # Criar um projeto no node (package.json)
 
 ```npm init``` ou ```npm init -y```
