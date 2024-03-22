@@ -99,3 +99,9 @@ ou
 # Instalar o mongoDB
 
 ```npm install @fastify/mongodb```
+
+#Instalar o c8
+
+```npm install c8```
+
+#
