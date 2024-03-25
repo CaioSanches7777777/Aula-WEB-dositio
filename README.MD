@@ -104,4 +104,11 @@ ou
 
 ```npm install c8```
 
+#Instalar o crypto (criptografia)
+
+```npm install crypto```
+
 #
+
+``````
+
